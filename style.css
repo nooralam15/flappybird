@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+    background-color: #3b444b;
+    /*color: whitesmoke; */
+    font-family: 'Anton', sans-serif; 
+}
+
+canvas {
+    border: 1px solid grey;
+    background-color: grey;
+}
+
+h1 {
+    color: #FF851B;
+    animation-name: animate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    font-size: 40px;
+}
+
+@keyframes animate{
+    0% {color: #581845}
+     20% {color: #900c3f} 
+     40% {color: #c70039}
+     60% {color: #FF5733} 
+     80% { color: #FFC300;}
+     100% {color: #581845}
+ 
+ }
