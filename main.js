@@ -12,6 +12,8 @@ let pipeUp = document.getElementById("pipeUp")
 let backgroundImg = document.getElementById("background")
 let floorImg = document.getElementById("floor")
 let keyPressed = false
+let score = 0
+let gameState = true
 
 //creates a player object 
 let square = {
@@ -44,21 +46,30 @@ let floors = [ {
 
 
 
-function gameControl(currentState) {
-
-
-}
 
 requestAnimationFrame(loop) 
 
 function loop() {
     pipeMover()
-    floorMover()
     squareMaster()
-    square.yV += 8.1
-    square.y = square.yV
-    square.yV *= 0.97
+    floorMover()
+    gameStateController()
+    
 
+
+    requestAnimationFrame(loop)
+}
+
+//will control the gameState logic
+function gameStateController() {
+    if (gameState == true) {
+        drawTrue()
+    }
+    else drawFalse()
+}
+
+//this will draw the images and shapes when the gamestate is true
+function drawTrue() {
 
     image(backgroundImg, 0, 0, cnv.width, 550)
 
@@ -74,11 +85,30 @@ function loop() {
     }
 
     //draw the square player onto the canvas
-    rect(square.x, square.y, square.w, square.h, square.mode)
     fill("red")
+    rect(square.x, square.y, square.w, square.h, square.mode)
 
-    requestAnimationFrame(loop)
+    //draws the score onto the page 
+    fill("beige")
+    font("50px 'Anton', sans-serif")
+    text(score, cnv.width/2, 100, "fill")
 }
+
+//this function will draw the shapes and Images when the game is false 
+function drawFalse() {
+    //draws the endGame text  onto the page 
+    text("GAME OVER", cnv.width/0.23, 100)
+    font("50px 'Anton', sans-serif")
+    text("Your Score", cnv.width/0.23, 200)
+    font("50px 'Anton', sans-serif")
+    text(score, cnv.width/2.2, 275)
+    font("30px 'Anton', sans-serif")
+    text("Press Enter to Restart", cnv.width/0.30, 400)
+    fill("beige")
+
+}
+
+
 
 
 //event listeners

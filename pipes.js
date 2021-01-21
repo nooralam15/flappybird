@@ -5,10 +5,16 @@ function pipeMover() {
     for (let i = 0; i < pipes.length; i++) {
         pipes[i].x -= 5
         pipes[i].x2 -= 5
-        
+        pipeTester(i)
     }
 }
 
+//this function will tets whether or not the pipes are going off the screen
+function pipeTester(index) {
+    if(pipes[index].x + 100 < 0 && pipes[index].x + 100 > -5) {
+        score++
+    }
+}
 
 
 
