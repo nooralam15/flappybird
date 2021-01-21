@@ -3,8 +3,8 @@
 //this file will cause the pipes to move (is the main pipe function)
 function pipeMover() {
     for (let i = 0; i < pipes.length; i++) {
-        pipes[i].x -= 5
-        pipes[i].x2 -= 5
+        pipes[i].x -= 10
+        pipes[i].x2 -= 10
         pipeTester(i)
     }
 }
@@ -23,7 +23,7 @@ function randomPipes() {
     //creates a random height for the bottom pipe
     let randHeight = Math.random()*200 + 255
     //this variable will look at the x position of the last pipe object and will determine the new x position 
-    let newX = pipes[pipes.length -1].x + 550
+    let newX = pipes[pipes.length -1].x + 1250
     return {
         x: newX,
         y: 0,
@@ -38,7 +38,7 @@ function randomPipes() {
 
 
 //timer - will add a new pipe object
-setInterval(addPipes, 1200) 
+setInterval(addPipes, 800) 
 
 function addPipes() {
     pipes.push(randomPipes())

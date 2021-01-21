@@ -9,8 +9,8 @@ function squareMaster() {
 
 //this function will create the gravity for the square
 function gravity() {
-    square.yV += 8.1
-    square.y = square.yV
+    square.yV += 0.5
+    square.y += square.yV
     square.yV *= 0.97
 }
 
@@ -27,9 +27,9 @@ function floorCollisionDetection() {
 //this function will deal with the pipe collision logic
 function pipeCollisionDetection() {
     for (let i = 0; i < pipes.length; i++) {
-        if (pipes[i].x2 + 10 < 52 && pipes[i].x2 + 110 > 20 && square.y < pipes[i].h2 || pipes[i].x + 10   < 52 && pipes[i].x + 110 > 20 && square.y + 32 > pipes[i].h ) {
+        if (pipes[i].x2 + 10 < 52 && pipes[i].x2 + 100 > 20 && square.y + 32 > pipes[i].y2 || pipes[i].x + 10   < 52 && pipes[i].x + 100 > 20 && square.y + 4 < pipes[i].h ) {
             gameState = false
-        }
+         }
     }
     
 }

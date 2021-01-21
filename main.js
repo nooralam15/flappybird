@@ -50,7 +50,6 @@ let floors = [ {
 requestAnimationFrame(loop) 
 
 function loop() {
-    pipeMover()
     squareMaster()
     floorMover()
     gameStateController()
@@ -64,9 +63,11 @@ function loop() {
 function gameStateController() {
     if (gameState == true) {
         drawTrue()
+        pipeMover() 
     }
     else drawFalse()
 }
+
 
 //this will draw the images and shapes when the gamestate is true
 function drawTrue() {
@@ -94,41 +95,59 @@ function drawTrue() {
     text(score, cnv.width/2, 100, "fill")
 }
 
+
 //this function will draw the shapes and Images when the game is false 
 function drawFalse() {
-    //draws the endGame text  onto the page 
-    text("GAME OVER", cnv.width/0.23, 100)
     font("50px 'Anton', sans-serif")
-    text("Your Score", cnv.width/0.23, 200)
-    font("50px 'Anton', sans-serif")
-    text(score, cnv.width/2.2, 275)
-    font("30px 'Anton', sans-serif")
-    text("Press Enter to Restart", cnv.width/0.30, 400)
     fill("beige")
+    shadowThickness(10)
+    shadowShade("black")
+    text("GAME OVER", 32/0.23, 100, "fill")
+    font("50px 'Anton', sans-serif")
+    fill("beige")
+    text("Your Score", 32/0.23, 200, "fill")
+    font("50px 'Anton', sans-serif")
+    fill("beige")
+    text(score, cnv.width/2.2, 275, "fill")
+    font("30px 'Anton', sans-serif")
+    fill("beige")
+    text("Press Enter to Restart", 32/0.30, 400, "fill")
 
 }
-
-
 
 
 //event listeners
 document.addEventListener("keydown", keyDownHandler)
 document.addEventListener("keyup", keyUpHandler)
 
+
 function keyDownHandler(event) {
-    if (!event.repeat) {
-        if(event.code =="Space" || event.code =="ArrowUp") {
-            square.yV -= 125;
+    if(gameState) {
+        if(!event.repeat) {
+            if(event.code == "Space" || event.code == "ArrowUp") {
+                square.yV -= 14
+            }
+        }
+    }
+    else {
+        if(event.code == "Enter") {
+            gameState = true
         }
     }
 }
 
 function keyUpHandler(event) {
-    if(event.code =="Space" || event.code == "ArrowUp") {
-        keyPressed = false
+    if(gameState) {
+        if(!event.repeat) {
+            if(event.code == "Space" || event.code == "ArrowUp") {
+                keyPressed = false
+            }
+        }
+    }
+    else {
+        if(event.code == "Enter") {
+            location.reload()
+        }
     }
 }
 
-
-
-console.log(pipes)

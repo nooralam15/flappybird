@@ -28,6 +28,16 @@ function text(message, x, y, mode) {
   }
 }
 
+//adds a shadowblur thickness to the text
+function shadowThickness(number) {
+  ctx.shadowBlur = number
+}
+
+function shadowShade(color) {
+  ctx.shadowColor = color    
+}
+
+
 
 // Draw a stroke or fill rectangle with a top-left corner of (x,y), a width of w and a height of h
 function rect(x, y, w, h, mode) {
