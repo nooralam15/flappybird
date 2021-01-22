@@ -12,7 +12,6 @@ function gravity() {
     square.yV += 0.5
     square.y += square.yV
     square.yV *= 0.97
-    gameState = false
 }
 
 //this function will deal if the square is falling through the floor
