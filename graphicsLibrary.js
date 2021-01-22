@@ -5,6 +5,8 @@
 // fill(color)
 // font(fontSetting)
 // rect(x, y, w, h, mode)
+//shadowThickness(number)
+//shadowShade(color)
 //text(message, x, y, mode)
 // image(img, x, y, w, h)
 

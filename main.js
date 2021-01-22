@@ -45,8 +45,6 @@ let floors = [ {
 }]
 
 
-
-
 requestAnimationFrame(loop) 
 
 function loop() {
@@ -54,14 +52,12 @@ function loop() {
     floorMover()
     gameStateController()
     
-
-
     requestAnimationFrame(loop)
 }
 
 //will control the gameState logic
 function gameStateController() {
-    if (gameState == true) {
+    if (gameState) {
         drawTrue()
         pipeMover() 
     }

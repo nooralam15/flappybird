@@ -4,7 +4,7 @@
 //this file will cause the pipes to move (is the main pipe function)
 function floorMover() {
     for (let i = 0; i < floors.length; i++) {
-        floors[i].x -=5        
+        floors[i].x -=3       
     }
 }
 
